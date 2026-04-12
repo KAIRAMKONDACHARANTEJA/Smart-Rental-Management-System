@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/landlord-dashboard.html", "destination": "/pages/landlord-dashboard.html" },
+    { "source": "/tenant-dashboard.html", "destination": "/pages/tenant-dashboard.html" }
+  ]
+}
