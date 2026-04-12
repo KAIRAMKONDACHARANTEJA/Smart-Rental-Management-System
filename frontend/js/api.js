@@ -3,7 +3,7 @@
 // All frontend API calls go through here
 // ============================================
 
-const BASE = '/api';  // Backend base URL
+const BASE = 'https://smart-rental-management-system.onrender.com/api';  // Backend base URL
 
 // ── Save / Get token from localStorage ──────
 const getToken  = ()       => localStorage.getItem('srms_token');
