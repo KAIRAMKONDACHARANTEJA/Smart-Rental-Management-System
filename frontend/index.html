@@ -94,7 +94,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);min-height:100
 </div>
 <div id="toast"></div>
 <script>
-const BASE='/api';
+const BASE='https://smart-rental-management-system.onrender.com/api';
 const getToken=()=>localStorage.getItem('srms_token');
 const getUser=()=>JSON.parse(localStorage.getItem('srms_user')||'{}');
 const saveAuth=(t,u)=>{localStorage.setItem('srms_token',t);localStorage.setItem('srms_user',JSON.stringify(u));};
