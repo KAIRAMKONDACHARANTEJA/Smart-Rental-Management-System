@@ -98,7 +98,7 @@ const BASE='/api';
 const getToken=()=>localStorage.getItem('srms_token');
 const getUser=()=>JSON.parse(localStorage.getItem('srms_user')||'{}');
 const saveAuth=(t,u)=>{localStorage.setItem('srms_token',t);localStorage.setItem('srms_user',JSON.stringify(u));};
-if(getToken()){const u=getUser();window.location.href=u.role==='landlord'?'/pages/landlord-dashboard.html':'/pages/tenant-dashboard.html';}
+if(getToken()){const u=getUser();window.location.href=u.role==='landlord'?'/landlord-dashboard.html':'/tenant-dashboard.html';}
 let role='landlord';
 function selRole(r,el){
   role=r;
@@ -117,7 +117,7 @@ async function doLogin(){
     if(!d.success)throw new Error(d.message);
     saveAuth(d.token,d.user);
     toast('✅ Welcome back, '+d.user.name+'!','success');
-    setTimeout(()=>{window.location.href=d.user.role==='landlord'?'/pages/landlord-dashboard.html':'/pages/tenant-dashboard.html';},800);
+    setTimeout(()=>{window.location.href=d.user.role==='landlord'?'/landlord-dashboard.html':'/tenant-dashboard.html';},800);
   }catch(err){toast('❌ '+err.message,'error');}
 }
 async function doReg(){
@@ -133,7 +133,7 @@ async function doReg(){
     if(!d.success)throw new Error(d.message);
     saveAuth(d.token,d.user);
     toast('✅ '+d.message,'success');
-    setTimeout(()=>{window.location.href=d.user.role==='landlord'?'/pages/landlord-dashboard.html':'/pages/tenant-dashboard.html';},800);
+    setTimeout(()=>{window.location.href=d.user.role==='landlord'?'/landlord-dashboard.html':'/tenant-dashboard.html';},800);
   }catch(err){toast('❌ '+err.message,'error');}
 }
 function showReg(){document.getElementById('sec-login').style.display='none';document.getElementById('sec-reg').style.display='block';}

@@ -12,6 +12,13 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serve frontend files
 app.use(express.static(path.join(__dirname, '../frontend')));
+// Serve dashboard files directly
+app.get('/landlord-dashboard.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/pages/landlord-dashboard.html'));
+});
+app.get('/tenant-dashboard.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/pages/tenant-dashboard.html'));
+});
 
 // Routes
 app.use('/api/auth',        require('./routes/authRoutes'));
@@ -24,9 +31,8 @@ app.use('/api/razorpay',    require('./routes/razorpayRoutes'));
 
 // Root - Login page
 app.get('/', (req, res) => {
-  res.json({ message: "SRMS Backend Running" });
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
-
 // 404
 app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Route not found' });

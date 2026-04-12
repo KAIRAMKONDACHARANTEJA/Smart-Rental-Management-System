@@ -2,8 +2,7 @@
 // js/api.js  — API Helper Functions
 // All frontend API calls go through here
 // ============================================
-
-const BASE = 'https://smart-rental-management-system.onrender.com/api';  // Backend base URL
+const BASE = '/api';
 
 // ── Save / Get token from localStorage ──────
 const getToken  = ()       => localStorage.getItem('srms_token');
@@ -22,14 +21,14 @@ const requireAuth = (redirectRole = null) => {
   const token = getToken();
   const user  = getUser();
   if (!token) {
-    window.location.href = '/pages/login.html';
+    window.location.href = '/';
     return false;
   }
   if (redirectRole && user.role !== redirectRole) {
     // Wrong role — send to correct dashboard
     window.location.href = user.role === 'landlord'
-      ? '/pages/landlord-dashboard.html'
-      : '/pages/tenant-dashboard.html';
+      ? '/landlord-dashboard.html'
+      : '/tenant-dashboard.html';
     return false;
   }
   return true;
