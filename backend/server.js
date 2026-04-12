@@ -24,7 +24,7 @@ app.use('/api/razorpay',    require('./routes/razorpayRoutes'));
 
 // Root - Login page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/pages/login.html'));
+  res.json({ message: "SRMS Backend Running" });
 });
 
 // 404
