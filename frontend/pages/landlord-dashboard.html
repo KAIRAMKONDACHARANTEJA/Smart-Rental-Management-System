@@ -46,7 +46,11 @@
 if (!requireAuth('landlord')) {}
 const user = getUser();
 document.getElementById('nav-name').textContent = user.name || 'Landlord';
-function logout() { clearAuth(); window.location.href = 'login.html'; }
+function logout() { 
+  clearAuth(); 
+  window.location.href = '/pages/login.html'; 
+}
+
 
 let _autoRefresh = null;
 
